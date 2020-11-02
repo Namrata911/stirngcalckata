@@ -42,5 +42,13 @@ class StringCalculatorTest {
                 ()->assertEquals(1300, stringcalc.add("1200,100"),"failed for input 1200,100")
         );
     }
+    @Test
+    @DisplayName("Multiple-number-input separated by comma should return the sum")
+    void multiNumInputShouldReturnSum(){
+        assertAll("Testing for multiple number input",
+                ()->assertEquals(6,stringcalc.add("1,2,3"),"Failed for input 1,2,3"),
+                ()->assertEquals(415, stringcalc.add("15,100,200,100"),"failed for input 15,100,200,100")
+        );
+    }
 
 }
