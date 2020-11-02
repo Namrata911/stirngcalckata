@@ -12,7 +12,7 @@ public class StringCalculator {
         if(numbers==null || numbers.isEmpty() || numbers.isBlank()){
             return 0;
         }
-        String[] split = numbers.split(",");
+        String[] split = numbers.split("[,\n]");
         if(split.length==1){
             return Integer.parseInt(split[0]);
         }

@@ -50,5 +50,13 @@ class StringCalculatorTest {
                 ()->assertEquals(415, stringcalc.add("15,100,200,100"),"failed for input 15,100,200,100")
         );
     }
+    @Test
+    @DisplayName("Allow new line delimiter or comma in input ")
+    void newLineOrCommaDelimiter(){
+        assertAll("Testing for new line or comma as delimiter in input",
+                ()->assertEquals(3,stringcalc.add("1\n2"),"Failed for input 1\\n2"),
+                ()->assertEquals(1303, stringcalc.add("1200\n100,1,2"),"failed for input 1200\\n100,1,2")
+        );
+    }
 
 }
