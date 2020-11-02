@@ -67,4 +67,15 @@ class StringCalculatorTest {
         );
     }
 
+
+    @Test
+    @DisplayName("Throw Exception for negative numbers in input")
+    void throwExceptionForNegativeNumbers(){
+        assertAll(
+                ()->assertThrows(NegativeInputException.class,()->stringcalc.add("2,3,-1"),"Failed for 2,3,-1"),
+                ()->assertThrows(NegativeInputException.class,()->stringcalc.add("//&\n-2&3&-1"),"Failed for //&\n-2&3&-1"),
+                ()->assertThrows(NegativeInputException.class,()->stringcalc.add("-6\n2,1"),"Failed for -6\n2,1")
+
+        );
+    }
 }

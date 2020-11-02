@@ -1,6 +1,8 @@
 package com.tdd.kata;
 
 import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class StringCalculator {
     /**
@@ -24,8 +26,24 @@ public class StringCalculator {
         if(split.length==1){
             return Integer.parseInt(split[0]);
         }
-        return Arrays.stream(split).mapToInt(Integer::parseInt).sum();
 
+        List<Integer> negatives = Arrays.stream(split)
+                    .mapToInt(Integer::parseInt)
+                .filter(value -> value < 0)
+                .boxed()
+                .collect(Collectors.toList());
+
+        if(negatives.size()>0){
+            StringBuilder sb = new StringBuilder();
+            for(int negative : negatives){
+                sb.append(negative+", ");
+            }
+            throw new NegativeInputException("Negative numbers in input: "+ sb.toString());
+        }
+
+        int sum = Arrays.stream(split).mapToInt(Integer::parseInt).sum();
+
+        return sum;
     }
 
 }
