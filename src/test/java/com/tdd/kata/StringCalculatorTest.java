@@ -24,5 +24,14 @@ class StringCalculatorTest {
                 ()->assertEquals(0, stringcalc.add(null),"failed for null input"),
                 ()-> assertEquals(0,stringcalc.add(" "),"Failed for whitespace"));
     }
+    @Test
+    @DisplayName("Single number input should return the number")
+    void singleInputShouldReturnSame(){
+        assertAll("Testing for single input",
+                ()->assertEquals(1,stringcalc.add("1"),"Failed for input 1 "),
+                ()->assertEquals(15, stringcalc.add("15"),"failed for input 15"),
+                ()->assertEquals(1200, stringcalc.add("1200"),"failed for input 1200")
+                );
+    }
 
 }
