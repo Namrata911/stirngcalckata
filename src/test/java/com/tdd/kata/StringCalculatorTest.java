@@ -33,5 +33,14 @@ class StringCalculatorTest {
                 ()->assertEquals(1200, stringcalc.add("1200"),"failed for input 1200")
                 );
     }
+    @Test
+    @DisplayName("Two number input separated by comma should return the sum")
+    void twoNumInputShouldReturnSum(){
+        assertAll("Testing for two number input",
+                ()->assertEquals(3,stringcalc.add("1,2"),"Failed for input 1,2"),
+                ()->assertEquals(115, stringcalc.add("15,100"),"failed for input 15,100"),
+                ()->assertEquals(1300, stringcalc.add("1200,100"),"failed for input 1200,100")
+        );
+    }
 
 }

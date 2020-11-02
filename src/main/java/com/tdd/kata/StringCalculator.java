@@ -1,5 +1,7 @@
 package com.tdd.kata;
 
+import java.util.Arrays;
+
 public class StringCalculator {
     /**
      * returns addition of numbers passed in a string separated by delimiter
@@ -14,7 +16,8 @@ public class StringCalculator {
         if(split.length==1){
             return Integer.parseInt(split[0]);
         }
-        return 0;
+        return Arrays.stream(split).mapToInt(value -> Integer.parseInt(value)).sum();
+
     }
 
 }
