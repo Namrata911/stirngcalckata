@@ -58,5 +58,13 @@ class StringCalculatorTest {
                 ()->assertEquals(1303, stringcalc.add("1200\n100,1,2"),"failed for input 1200\\n100,1,2")
         );
     }
+    @Test
+    @DisplayName("Allow custom delimiter in input ")
+    void customDelimiter(){
+        assertAll("Testing for new line or comma as delimiter in input",
+                ()->assertEquals(3,stringcalc.add("//;\n1;2"),"Failed for input //;\n1;2"),
+                ()->assertEquals(1303, stringcalc.add("//@\n1200@100@1@2"),"failed for input //@\n1200@100@1@2")
+        );
+    }
 
 }
